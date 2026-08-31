@@ -1,0 +1,6 @@
+aiogram>=3.31,<4
+aiohttp>=3.9,<4
+aiosqlite>=0.22,<1
+python-dotenv>=1,<2
+pystray>=0.19,<1; platform_system == "Windows"
+Pillow>=10,<12; platform_system == "Windows"
