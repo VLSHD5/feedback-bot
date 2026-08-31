@@ -1,1 +1,50 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#15171a"><title>Feedback Assistant</title><link rel="stylesheet" href="./style.css"></head><body><div class="ambient"></div><main class="shell"><header class="top"><div><div class="eyebrow">TELEGRAM ASSISTANT</div><h1>Feedback Assistant</h1><p>Панель доступных функций</p></div><div class="status" id="status">Подключение…</div></header><section class="profile card"><div class="avatar" id="avatar">?</div><div><div class="muted">Пользователь</div><strong id="name">Telegram</strong><div class="muted" id="role">Обычный доступ</div></div></section><section class="grid"><button class="action" data-send="stats"><span>Моя статистика</span><small>Предупреждения, баны, обращения</small></button><button class="action" data-send="rules"><span>Правила</span><small>Правила чата и модерации</small></button><button class="action" data-send="questions"><span>Вопросы</span><small>Обычный чат с администрацией</small></button><button class="action danger" data-send="appeal"><span>Апелляция</span><small>Доступ определяется ботом</small></button></section><section class="admin card" id="admin" hidden><div class="section-title">Администрирование</div><div class="grid"><button class="action" data-send="admin_appeals"><span>Апелляции</span><small>Проверка обращений</small></button><button class="action" data-send="members"><span>Участники</span><small>Информация и ограничения</small></button><button class="action" data-send="audit"><span>Аудит чата</span><small>Действия участников и модераторов</small></button><button class="action" data-send="settings"><span>Настройки</span><small>Параметры чата и модерации</small></button></div></section><footer>Доступ определяется ботом · GitHub Pages</footer></main><script src="https://telegram.org/js/telegram-web-app.js"></script><script src="./app.js"></script></body></html>
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111315">
+  <title>Feedback Assistant</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="ambient"></div>
+<main class="shell">
+  <header class="top">
+    <div><div class="eyebrow">TELEGRAM ASSISTANT</div><h1>Feedback Assistant</h1><p id="subtitle">Связь с администрацией</p></div>
+    <div class="status" id="status">Подключение…</div>
+  </header>
+  <section class="profile card">
+    <div class="avatar" id="avatar">?</div>
+    <div><div class="muted">Пользователь</div><strong id="name">Telegram</strong><div class="muted" id="role">Обычный доступ</div></div>
+  </section>
+  <section class="grid" id="userActions">
+    <button class="action" data-send="stats"><span>Моя статистика</span><small>Предупреждения, баны и обращения</small></button>
+    <button class="action" data-send="rules"><span>Правила</span><small>Правила чата и модерации</small></button>
+    <button class="action" data-send="questions"><span>Вопросы</span><small>Обычный чат с администрацией</small></button>
+    <button class="action danger" data-send="appeal"><span>Апелляция</span><small>Показывается только при активном бане</small></button>
+  </section>
+  <section class="admin card" id="admin" hidden>
+    <div class="section-title">Администрирование</div>
+    <div class="grid">
+      <button class="action" data-send="admin_appeals"><span>Апелляции</span><small>Причина бана, сообщение и история обращения</small></button>
+      <button class="action" data-send="members"><span>Участники</span><small>Информация и ограничения</small></button>
+      <button class="action" data-send="audit"><span>Аудит чата</span><small>Действия участников и модераторов</small></button>
+      <button class="action" data-send="settings"><span>Настройки</span><small>Модерация, AI и подключённые чаты</small></button>
+    </div>
+    <div class="lookup">
+      <input id="lookup" placeholder="@username или ID пользователя">
+      <button class="action compact" data-send="user_lookup"><span>Показать статистику</span></button>
+    </div>
+  </section>
+  <section class="form card" id="appealForm" hidden>
+    <div class="section-title">Апелляция</div>
+    <textarea id="appealText" placeholder="Опишите, почему решение следует пересмотреть"></textarea>
+    <button class="action primary" id="submitAppeal"><span>Отправить апелляцию</span></button>
+  </section>
+  <footer>Права определяются ботом. Админские данные не выводятся обычным пользователям.</footer>
+</main>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
